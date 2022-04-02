@@ -1,0 +1,26 @@
+server:
+  port: 8081
+
+
+books:
+ 1:
+  bookName: Clean Code
+  author: Robert Martin
+  year: 2008
+ 2:
+  bookName: The Clean Coder
+  author: Robert Martin
+  year: 2011
+ 3:
+  bookName: Clean Architecture
+  author: Robert Martin
+  year: 2017
+ 4: 
+  bookName: Test Driven Development by Example
+  author: Kent Beck
+  year: 2003
+ 5:
+  bookName: Working Effectively With Legacy Code
+  author: Michael C. Feathers
+  year: 2001  
+      
