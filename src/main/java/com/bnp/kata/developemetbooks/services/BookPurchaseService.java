@@ -26,6 +26,10 @@ public class BookPurchaseService {
 			double basePrice = bookList.size() * DevelopemetBooksConstant.PRICE;
 			double discountedPriceForSet = basePrice - ((basePrice * 20) / DevelopemetBooksConstant.PERCENTAGE);
 			calculatedPrice += discountedPriceForSet;
+		} else if (bookList.size() == 5) {
+			double basePrice = bookList.size() * DevelopemetBooksConstant.PRICE;
+			double discountedPriceForSet = basePrice - ((basePrice * 25) / DevelopemetBooksConstant.PERCENTAGE);
+			calculatedPrice += discountedPriceForSet;
 		}
 		return calculatedPrice;
 
