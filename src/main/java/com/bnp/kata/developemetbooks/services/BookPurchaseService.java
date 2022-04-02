@@ -11,7 +11,6 @@ import com.bnp.kata.developemetbooks.model.ShoppingCartItem;
 public class BookPurchaseService {
 	public Double calculateBooksPrice(List<ShoppingCartItem> bookList) {
 		double calculatedPrice = 0d;
-		// double price = 50d;
 		if (bookList.size() == 1) {
 			ShoppingCartItem shoppingCartItembook = bookList.get(0);
 			calculatedPrice = DevelopemetBooksConstant.PRICE * shoppingCartItembook.getQuantity();
@@ -22,6 +21,10 @@ public class BookPurchaseService {
 		} else if (bookList.size() == 3) {
 			double basePrice = bookList.size() * DevelopemetBooksConstant.PRICE;
 			double discountedPriceForSet = basePrice - ((basePrice * 10) / DevelopemetBooksConstant.PERCENTAGE);
+			calculatedPrice += discountedPriceForSet;
+		} else if (bookList.size() == 4) {
+			double basePrice = bookList.size() * DevelopemetBooksConstant.PRICE;
+			double discountedPriceForSet = basePrice - ((basePrice * 20) / DevelopemetBooksConstant.PERCENTAGE);
 			calculatedPrice += discountedPriceForSet;
 		}
 		return calculatedPrice;

@@ -72,4 +72,21 @@ public class BookPurchaseServicesTest {
 
 	}
 
+	@Test
+	public void calculatePriceShouldReturn160WhenUserBuysFoursDifferentBook() {
+		bookPurchaseService = new BookPurchaseService();
+		List<ShoppingCartItem> bookList = new ArrayList<>();
+		setShoppingCart(1, 1);
+		bookList.add(shoppingCartItem);
+		setShoppingCart(2, 1);
+		bookList.add(shoppingCartItem);
+		setShoppingCart(3, 1);
+		bookList.add(shoppingCartItem);
+		setShoppingCart(4, 1);
+		bookList.add(shoppingCartItem);
+
+		Assertions.assertEquals(160d, bookPurchaseService.calculateBooksPrice(bookList));
+
+	}
+
 }
