@@ -49,13 +49,26 @@ public class BookPurchaseServicesTest {
 		bookPurchaseService = new BookPurchaseService();
 		List<ShoppingCartItem> bookList = new ArrayList<>();
 		setShoppingCart(1, 1);
-		setShoppingCart(1, 2);
 		bookList.add(shoppingCartItem);
 		setShoppingCart(2, 1);
-		setShoppingCart(1, 2);
 		bookList.add(shoppingCartItem);
 
 		Assertions.assertEquals(95d, bookPurchaseService.calculateBooksPrice(bookList));
+
+	}
+
+	@Test
+	public void calculatePriceShouldReturn135WhenUserBuysThreeDifferentBook() {
+		bookPurchaseService = new BookPurchaseService();
+		List<ShoppingCartItem> bookList = new ArrayList<>();
+		setShoppingCart(1, 1);
+		bookList.add(shoppingCartItem);
+		setShoppingCart(2, 1);
+		bookList.add(shoppingCartItem);
+		setShoppingCart(3, 1);
+		bookList.add(shoppingCartItem);
+
+		Assertions.assertEquals(135d, bookPurchaseService.calculateBooksPrice(bookList));
 
 	}
 
