@@ -107,5 +107,25 @@ public class BookPurchaseServicesTest {
 		Assertions.assertEquals(187.5d, bookPurchaseService.calculateBooksPrice(bookList));
 
 	}
+	@Test
+	public void findTheTotalNumberOfBooksInCart() {
+		bookPurchaseService = new BookPurchaseService();
+		List<ShoppingCartItem> bookList = new ArrayList<>();
+		setShoppingCart(1, 2);
+		bookList.add(shoppingCartItem);
+		setShoppingCart(2, 2);
+		bookList.add(shoppingCartItem);
+		setShoppingCart(3, 2);
+		bookList.add(shoppingCartItem);
+		setShoppingCart(4, 1);
+		bookList.add(shoppingCartItem);
+		setShoppingCart(5, 1);
+		bookList.add(shoppingCartItem);
 
+		Assertions.assertEquals(8, bookPurchaseService.getBookIdList(bookList).size());
+
+	}
+
+	
+	
 }

@@ -1,5 +1,6 @@
 package com.bnp.kata.developemetbooks.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -33,5 +34,22 @@ public class BookPurchaseService {
 		}
 		return calculatedPrice;
 
+	}
+
+	public List<Integer> getBookIdList(List<ShoppingCartItem> bookInputList) {
+		List<Integer> totalNumberOfbooks = new ArrayList<>();
+		for (ShoppingCartItem bookApiRequest : bookInputList) {
+			addBookId(totalNumberOfbooks, bookApiRequest);
+		}
+		return totalNumberOfbooks;
+	}
+
+	private List<Integer> addBookId(List<Integer> extractedList, ShoppingCartItem bookApiRequest) {
+
+		for (int i = 0; i < bookApiRequest.getQuantity(); i++) {
+			extractedList.add(bookApiRequest.getBookId());
+		}
+
+		return extractedList;
 	}
 }
